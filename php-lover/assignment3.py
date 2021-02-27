@@ -1,4 +1,4 @@
-import turtle
+import turtle as sköldpadda
 
 def shaft(length: int, girth: int):
     sköldpadda.home()
@@ -19,10 +19,7 @@ def balls(r: int):
 length = 100
 ball_size = 30
 
-screen = turtle.getscreen()
-sköldpadda = turtle.Turtle()
-
 balls(ball_size)
 shaft(length, ball_size)
 
-turtle.done()
+sköldpadda.done()
