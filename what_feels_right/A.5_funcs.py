@@ -1,8 +1,3 @@
-# Requirements:
-# - make a function that adds two numbers together and returns the value
-# - create additional functions for calculating difference, product, and quotient
-
-
 def summ(a, b):
     return a + b
 
