@@ -22,7 +22,6 @@ class Calculator:
         nq = []
         oq = []
 
-        ops = ''.join(self.OPS.keys())
         l = re.split(r'\s|([\/*+\-\(\)])', equation)
         eq_arr = [i for i in l if i != '' and i is not None]
 
