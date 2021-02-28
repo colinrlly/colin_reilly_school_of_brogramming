@@ -1,11 +1,11 @@
-import calculator
+from calculator import Calculator
 import random
 
 # Alex Carpenter
 # Colin Reilly School of Brogramming Assignment 5
 # Math function demo
 
-c = calculator()
+c = Calculator(throw=False)
 
 num1 = random.randrange(20)
 num2 = random.randrange(20)
@@ -36,4 +36,7 @@ num2 = 0
 
 print(str(num1) + ' / ' + str(num2) + " =")
 print(c.div(num1, num2))
+
+print('History:')
+c.hst()
 
