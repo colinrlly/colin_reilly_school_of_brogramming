@@ -36,15 +36,14 @@ class Calculator:
         else:
             print(self.history)
 
-    switcher = {
-        '+': add,
-        '-': sub,
-        '*': mul,
-        '/': div
-    }
-
     def prs(self, stin: str):
+        switcher = {
+            '+': self.add,
+            '-': self.sub,
+            '*': self.mul,
+            '/': self.div
+        }
         spt = stin.split()
         f = switcher.get(spt[1], 'nothing')
-        print(f(int(spt[0], int(spt[2]))))
+        print(f(int(spt[0]), int(spt[2])))
 

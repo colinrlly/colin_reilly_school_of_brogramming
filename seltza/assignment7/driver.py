@@ -40,3 +40,5 @@ print(c.div(num1, num2))
 print('History:')
 c.hst()
 
+str_2_test = '4 + 5'
+c.prs(str_2_test)
