@@ -16,10 +16,15 @@ class Calculator:
         self.history = [n1, n2, ans, op]
         self.throw = throw
 
+    def razer(self, message='Error'):
+        if self.throw:
+            raise Exception(message)
+        else:
+            print(message)
+
     def add(self, n1, n2):
         ans = n1 + n2
         self.history = [n1, n2, ans, '+']
-        print(ans)
         return ans
 
     def sub(self, n1, n2):
@@ -38,10 +43,7 @@ class Calculator:
             self.history = [n1, n2, ans, '/']
             return ans
         self.history = [n1, n2, None, '/']
-        if self.throw:
-            raise ValueError('Error, divide by zero. Get out of here with that shit.')
-        else:
-            print('Error, divide by zero. Get out of here with that shit.')
+        self.razer('Error, divide by zero. Get out of here with that shit.')
 
     def hst(self):
         if self.history.__len__() == 4:
@@ -49,14 +51,31 @@ class Calculator:
         else:
             print(self.history)
 
-    def prs(self, stin: str):
-        switcher = {
-            '+': self.add,
-            '-': self.sub,
-            '*': self.mul,
-            '/': self.div
-        }
-        spt = stin.split()
-        f = switcher.get(spt[1], 'nothing')
-        print(f(float(spt[0]), float(spt[2])))
+    def calculate(self, stin: str):
+        if stin:
+            switcher = {
+                '+': self.add,
+                '-': self.sub,
+                '*': self.mul,
+                '/': self.div
+            }
+            spt = stin.split()
+            if spt.__len__() == 3:
+                f = switcher.get(spt[1], 'nothing')
+                if f:
+                    try:
+                        ans = f(float(spt[0]), float(spt[2]))
+                        # check if it's an integer, use that formatting if so
+                        if ans and ans.is_integer():
+                            return int(ans)
+                        return ans
+                    except ValueError:
+                        self.razer('You think you can get away with putting messed up numbers in here?')
+                else:
+                    self.razer('You think ' + spt[1] + ' is a valid operator? Are ya stupid or somethin?')
+            else:
+                self.razer('You think you can just put together an expression all willy nilly like? STICK TO THE FRICKIN FORMAT! calculate(\'n1 $ n2\') where $ is your operator')
+        else:
+            self.razer('You think you can get arround just sending empty strings all over the joint?')
+
 

@@ -1,44 +1,39 @@
 from calculator import Calculator
-import random
 
 # Alex Carpenter
 # Colin Reilly School of Brogramming Assignment 5
 # Math function demo
 
+def calc(obj, expr='4 + 5'):
+    print(expr)
+    ans = obj.calculate(expr)
+    if ans:
+        print(ans)
+
 c = Calculator(throw=False)
 
-num1 = random.randrange(20)
-num2 = random.randrange(20)
+print('default case:')
+calc(c)
 
-print(str(num1) + ' + ' + str(num2) + " =")
-print(c.add(num1, num2))
+print('\nfloat input:')
+calc(c, '7.5 / 2.5')
 
-num1 = random.randrange(20)
-num2 = random.randrange(20)
+print('\nfloat output:')
+calc(c, '10 / 3')
 
-print(str(num1) + ' - ' + str(num2) + " =")
-print(c.sub(num1, num2))
+print('\nfloat input & output:')
+calc(c, '13.37 / 6.9')
 
-num1 = random.randrange(20)
-num2 = random.randrange(20)
+print('\ndiv by 0:')
+calc(c, '420 / 0')
 
-print(str(num1) + ' * ' + str(num2) + " =")
-print(c.mul(num1, num2))
+print('\nbad formatting:')
+calc(c, '4 +4')
+calc(c, '4+4')
 
-num1 = random.randrange(20)
-num2 = random.randrange(1,20)
+print("\nempty string:")
+calc(c, '')
 
-print(str(num1) + ' / ' + str(num2) + " =")
-print(c.div(num1, num2))
-
-num1 = random.randrange(20)
-num2 = 0
-
-print(str(num1) + ' / ' + str(num2) + " =")
-print(c.div(num1, num2))
-
-print('History:')
-c.hst()
-
-str_2_test = '4 + 5'
-c.prs(str_2_test)
+print("\nbad numbers:")
+calc(c, 'dog + shit')
+calc(c, '420 + 6ix9ine')
