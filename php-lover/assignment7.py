@@ -30,7 +30,7 @@ class Calculator:
             x = eq_arr[i]
             if x == '(':
                 # process parentheses
-                start = i+1
+                start = i + 1
                 end = eq_arr.index(')', start)
 
                 nq.append(self.calculate(' '.join(eq_arr[start:end])))
