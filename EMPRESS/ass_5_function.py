@@ -1,5 +1,8 @@
 # Creating Function
 
+a = 2
+b = 10
+
 # add function adds a and b, returns the result
 def add(a,b):
     return(a + b)
@@ -18,9 +21,9 @@ def div(a,b):
 
 # main function 
 def main():
-    print(add(2,3))
-    print(mult(4,3))
-    print(sub(3,4))
-    print(div(10,5))
+    print(add(a,b))
+    print(mult(a,b))
+    print(sub(a,b))
+    print(div(a,b))
 
 main()
