@@ -3,7 +3,7 @@ a = 2
 b = 10
 
 # Create class
-class MyCalc:
+class Calculator:
     # adding self parameter is necessary, it is a reference
     # to the current instance of the class.
     def add(self,x,y): 
@@ -33,11 +33,11 @@ class MyCalc:
 # MyCalc() instantiates the MyCalc class - creates an instant
 # that exists.
 # Instance is placed in the calculator variable
-calculator = MyCalc()
+calc = Calculator()
 
 # self arg, self referencing the instance 'calculator'
 # is added first, before 'a' 
-print(calculator.add(a,b))
-print(calculator.mult(a,b))
-print(calculator.div(a,b))
-print(calculator.sub(a,b))
+print(calc.add(a,b))
+print(calc.mult(a,b))
+print(calc.div(a,b))
+print(calc.sub(a,b))
