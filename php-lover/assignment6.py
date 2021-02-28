@@ -22,4 +22,3 @@ if __name__ == "__main__":
     print(c.mul(3,4))
     print(c.div(5,0))
     print(c.sub(7,8))
-
