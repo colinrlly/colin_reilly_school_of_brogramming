@@ -21,7 +21,9 @@ def mul(n1, n2):
     return ans
 
 def div(n1, n2):
-    ans = n1/n2
-    print(ans)
-    return ans
+    if n2 != 0:
+        ans = n1/n2
+        print(ans)
+        return ans
+    print ('Error, divide by zero. Get out of here with that shit.')
 
