@@ -1,4 +1,4 @@
-#Attempt 1 Start
+# #Attempt 1 Start
 # number_1 = 5
 # number_2 = 10
 
@@ -28,14 +28,14 @@
 #     print(number_1 / number_2)
 
 # basic_division(number_1, number_2)
-#Attempt 1 End
+# #Attempt 1 End
 
 #Attempt 2 Start (Because Attempt 1 works but is inflexible)
 #Using random numbers now might get me docked a letter grade oh god oh fuck
 # import random
 
-# number_1 = random.randrange(1, 10)
-# number_2 = random.randrange(11, 20)
+# n_1 = random.randrange(1, 10)
+# n_2 = random.randrange(11, 20)
 
 # def add_2(number_1, number_2):
 #     return number_1+number_2
@@ -50,10 +50,10 @@
 #     return number_1/number_2
 
 # def shit_calculator():
-#     print(add_2(number_1, number_2))
-#     print(subtract_2(number_1, number_2))
-#     print(multiply_2(number_1, number_2))
-#     print(divide_2(number_1, number_2))
+#     print(add_2(n_1, n_2))
+#     print(subtract_2(n_1, n_2))
+#     print(multiply_2(n_1, n_2))
+#     print(divide_2(n_1, n_2))
 
 # shit_calculator()
 #Attempt 2 End
@@ -80,4 +80,4 @@ def turd_calculator():
     print(divide_3(7, 8))
 
 turd_calculator()
-#Attempt 3 End
+# #Attempt 3 End
