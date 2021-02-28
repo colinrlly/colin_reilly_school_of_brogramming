@@ -7,7 +7,6 @@ import re
 import sys
 
 class Calculator:
-    OPS = ()
     def __init__(self):
         self.OPS = {
             '/': self.div,
@@ -73,10 +72,7 @@ class Calculator:
 
 
     def div(self, n1: float, n2: float) -> float:
-        try:
-            return n1 / n2
-        except ZeroDivisionError:
-            return NaN
+        return n1 / n2
 
 
     def sub(self, n1: float, n2: float) -> float:
@@ -93,6 +89,11 @@ if __name__ == "__main__":
         s = '4 + 5 * 4 - ( 3 * 3 )'
     else:
         raise SyntaxError
-    r = c.calculate(s)
+
+    try:
+        r = c.calculate(s)
+    except:
+        print("oopsie woopsie we had a fucky wucky")
+        exit(1)
 
     print(r)
