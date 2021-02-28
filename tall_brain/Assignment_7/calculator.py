@@ -1,19 +1,15 @@
 class calculator:
     def add(self, x, y):
-        ans = x + y
-        return ans
+        return x + y
 
     def sub(self, x, y):
-        ans = x - y
-        return ans
+        return x - y
 
     def mul(self, x, y):
-        ans = x * y
-        return ans
+        return x * y
 
     def div(self, x, y):
-        ans = x / y
-        return ans
+        return x / y
 
     def calculate(self, prob):
         parsed_prob = prob.split()
