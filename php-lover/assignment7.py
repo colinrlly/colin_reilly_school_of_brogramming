@@ -1,3 +1,8 @@
+"""Calculate a given string equation
+
+python assignment7.py "(4+5)*4/6 - 1"
+
+"""
 import re
 import sys
 
@@ -13,6 +18,7 @@ class Calculator:
 
 
     def calculate(self, equation: str) -> float:
+        """Calculate a string equation using PEMDAS rule"""
         nq = []
         oq = []
 
@@ -22,21 +28,27 @@ class Calculator:
 
         i = 0
         while i < len(eq_arr):
+            # create the equation queue 
             x = eq_arr[i]
-            # process parentheses
             if x == '(':
+                # process parentheses
                 start = i+1
                 end = eq_arr.index(')', start)
 
                 nq.append(self.calculate(' '.join(eq_arr[start:end])))
                 i = end
             elif x not in self.OPS:
+                # add number to queue
                 nq.append(float(x))
             elif x in self.OPS:
+                # add operator to queue
                 oq.append(x)
+            else:
+                raise SyntaxError
 
             i += 1
         
+        # run equation queue
         for op in self.OPS:
             for i in range(len(oq)):
                 try:
@@ -46,6 +58,7 @@ class Calculator:
                 except IndexError:
                     continue
         
+        # return result
         if len(nq) == 1:
             return nq[0]
         else:
@@ -77,6 +90,7 @@ if __name__ == "__main__":
     if n == 2:
         s = sys.argv[1]
     elif n == 1:
+        # example equation
         s = '4 + 5 * 4 - ( 3 * 3 )'
     else:
         raise SyntaxError
