@@ -3,12 +3,14 @@
 python assignment7.py "(4+5)*4/6 - 1"
 
 """
+import math
 import re
 import sys
 
 class Calculator:
     def __init__(self):
         self.OPS = {
+            '^': math.pow,
             '/': self.div,
             '*': self.mul,
             '-': self.sub,
@@ -21,7 +23,7 @@ class Calculator:
         nq = []
         oq = []
 
-        l = re.split(r'\s|([\/*+\-\(\)])', equation)
+        l = re.split(r'\s|([\/*+\-\(\)\^])', equation)
         eq_arr = [i for i in l if i != '' and i is not None]
 
         i = 0
