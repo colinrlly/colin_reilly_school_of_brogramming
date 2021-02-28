@@ -1,0 +1,3 @@
+Parameter is the variable listed inside the parenthesis in the function definition
+Argument is the value that is sent to the function when it is called
+
