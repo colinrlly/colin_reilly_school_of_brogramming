@@ -28,7 +28,7 @@ class Calculator:
 
         i = 0
         while i < len(eq_arr):
-            # create the equation queue 
+            # create the equation queue
             x = eq_arr[i]
             if x == '(':
                 # process parentheses
@@ -47,7 +47,7 @@ class Calculator:
                 raise SyntaxError
 
             i += 1
-        
+
         # run equation queue
         for op in self.OPS:
             for i in range(len(oq)):
@@ -57,12 +57,12 @@ class Calculator:
                         oq.pop(i)
                 except IndexError:
                     continue
-        
+
         # return result
         if len(nq) == 1:
             return nq[0]
         else:
-            raise ArithmeticError            
+            raise ArithmeticError
 
 
     def add(self, n1: float, n2: float) -> float:
@@ -88,7 +88,8 @@ if __name__ == "__main__":
         s = sys.argv[1]
     elif n == 1:
         # example equation
-        s = '4 + 5 * 4 - ( 3 * 3 )'
+        #s = '4 + 5 * 4 - ( 3 * 3 )'
+        s = '-4+5'
     else:
         raise SyntaxError
 
