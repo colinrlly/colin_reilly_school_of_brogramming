@@ -12,20 +12,26 @@ def calc(obj, expr='4 + 5'):
 
 c = Calculator(throw=False)
 
-print('default case:')
+print('\n\noperators:')
 calc(c)
+calc(c, '4 - 5')
+calc(c, '4 * 5')
+calc(c, '4 / 5')
+calc(c, '4 ^ 5')
+calc(c, '4 % 5')
 
 print('\nfloat input:')
-calc(c, '7.5 / 2.5')
+calc(c, '7.5 - 2.5')
 
 print('\nfloat output:')
 calc(c, '10 / 3')
 
 print('\nfloat input & output:')
-calc(c, '13.37 / 6.9')
+calc(c, '13.37 * 6.9')
 
 print('\ndiv by 0:')
 calc(c, '420 / 0')
+calc(c, '4 % 0')
 
 print('\nbad formatting:')
 calc(c, '4 +4')

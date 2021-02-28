@@ -45,6 +45,19 @@ class Calculator:
         self.history = [n1, n2, None, '/']
         self.razer('Error, divide by zero. Get out of here with that shit.')
 
+    def pwo(self, n1, n2):
+        ans = pow(n1, n2)
+        self.history = [n1, n2, ans, '^']
+        return ans
+
+    def mod(self, n1, n2):
+        if n2 != 0:
+            ans = n1%n2
+            self.history = [n1, n2, ans, '%']
+            return ans
+        self.history = [n1, n2, None, '%']
+        self.razer('Error, mod by zero. Get out of here with that shit.')
+
     def hst(self):
         if self.history.__len__() == 4:
             print('n1: ' + str(self.history[0]) + ', n2: ' + str(self.history[1]) + ', ans: ' + str(self.history[2]) + ', op: ' + self.history[3])
@@ -57,7 +70,9 @@ class Calculator:
                 '+': self.add,
                 '-': self.sub,
                 '*': self.mul,
-                '/': self.div
+                '/': self.div,
+                '^': self.pwo,
+                '%': self.mod
             }
             spt = stin.split()
             if spt.__len__() == 3:
