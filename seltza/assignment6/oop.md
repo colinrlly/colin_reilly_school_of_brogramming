@@ -12,5 +12,3 @@ can you jump off a function? i don't think so
 you gotta brake up ur living room into chairs and tables and dogs
 get a rug in there while you're at it
 calculate that, you great baboon
-
-https://colin-reilly-school-of-brogramming.netlify.app/
