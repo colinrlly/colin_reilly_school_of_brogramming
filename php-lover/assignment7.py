@@ -1,3 +1,6 @@
+import re
+import sys
+
 class Calculator:
     OPS = ()
     def __init__(self):
@@ -9,10 +12,13 @@ class Calculator:
         }
 
 
-    def calculate(self, equation: str):
+    def calculate(self, equation: str) -> float:
         nq = []
         oq = []
-        eq_arr = equation.split(' ')
+
+        ops = ''.join(self.OPS.keys())
+        l = re.split(r'\s|([\/*+\-\(\)])', equation)
+        eq_arr = [i for i in l if i != '' and i is not None]
 
         i = 0
         while i < len(eq_arr):
@@ -28,7 +34,6 @@ class Calculator:
                 nq.append(float(x))
             elif x in self.OPS:
                 oq.append(x)
-            
 
             i += 1
         
@@ -44,31 +49,37 @@ class Calculator:
         if len(nq) == 1:
             return nq[0]
         else:
-            raise IndexError            
+            raise ArithmeticError            
 
 
-    def add(self, n1: int, n2: int) -> int:
+    def add(self, n1: float, n2: float) -> float:
         return n1 + n2
 
 
-    def mul(self, n1: int, n2: int) -> int:
+    def mul(self, n1: float, n2: float) -> float:
         return n1 * n2
 
 
-    def div(self, n1: int, n2: int) -> int:
+    def div(self, n1: float, n2: float) -> float:
         try:
-            return n1 // n2
+            return n1 / n2
         except ZeroDivisionError:
             return NaN
 
 
-    def sub(self, n1: int, n2: int) -> int:
+    def sub(self, n1: float, n2: float) -> float:
         return n1 - n2
 
 
 if __name__ == "__main__":
     c = Calculator()
-
-    r = c.calculate('4 + 5 * 4 - ( 3 * 3 )')
+    n = len(sys.argv)
+    if n == 2:
+        s = sys.argv[1]
+    elif n == 1:
+        s = '4 + 5 * 4 - ( 3 * 3 )'
+    else:
+        raise SyntaxError
+    r = c.calculate(s)
 
     print(r)
