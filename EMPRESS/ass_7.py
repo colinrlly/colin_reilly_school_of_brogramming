@@ -1,27 +1,27 @@
 
-a = 4
-b = 5
+A = 4
+B = 5
 
 class Calculator:
         
-    def add(self,x,y): 
-        return (x + y)
+    def add(self, x, y): 
+        return x + y
 
     # mult function multiplies x and y, returns the result
-    def mult(self,x,y):
-        return (x * y)
+    def mult(self, x, y):
+        return x * y
 
     # sub function subtracts x and y, returns the result
-    def sub(self,x,y):
-        return (x - y)
+    def sub(self, x, y):
+        return x - y
 
     # div function divides x and y, returns the result
-    def div(self,x,y):
-        return (x / y)
+    def div(self, x, y):
+        return x / y
 
     # defining the calculate function that will pass the string operation
     # then make it calculate haha
-    def calculate(self,operation):
+    def calculate(self, operation):
         # Using string method split to return operation as a list
         # ['4', '+', '5']
         operationlist = operation.split()
@@ -33,24 +33,17 @@ class Calculator:
         y = int(operationlist[2])
         # look at '+', understand to add
         if operationlist[1] == '+':
-            return (self.add(x,y))
+            return self.add(x, y)
 
         # if '-', do the subtract function
         elif operationlist[1] == '-':
-            return (self.sub(x,y))
+            return self.sub(x,y)
 
         elif operationlist[1] == '*':
-            return (self.mult(x,y))
+            return self.mult(x,y)
 
         elif operationlist[1] == '/':
-            return (self.div(x,y))
-
-    # main function 
-    def main(self):
-        print(add(a,b))
-        print(mult(a,b))
-        print(sub(a,b))
-        print(div(a,b))
+            return self.div(x,y)
 
 calc = Calculator()
 
