@@ -1,4 +1,19 @@
 class Calculator:
+    """
+    A class to perform simple arithmatic.
+    
+    ...
+
+    Attributes
+    ----------
+    history : float
+        first argument of the math
+    n2 : float
+        second argument of the math
+    ans : float
+        the answer of 
+    """
+
     def __init__(self, n1=691, n2=692, ans=-691, op='NA', throw=False):
         self.history = [n1, n2, ans, op]
         self.throw = throw
@@ -45,5 +60,5 @@ class Calculator:
         }
         spt = stin.split()
         f = switcher.get(spt[1], 'nothing')
-        print(f(int(spt[0]), int(spt[2])))
+        print(f(float(spt[0]), float(spt[2])))
 
