@@ -1,0 +1,15 @@
+git pull
+git branch
+git checkout <branchname>
+git push origin --delete <branchname> Remote delete branch 
+git branch -D Pinkie Local delete branch
+
+git status
+git add .
+git commit -m "notes"
+git push -u origin branchname 
+
+python <filename>
+
+
+look over _init_ function, self

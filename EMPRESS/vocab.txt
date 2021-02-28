@@ -1,0 +1,17 @@
+Parameter - the variable listed inside the parenthesis in the function definition
+Argument - the value that is sent to the function when it is called
+Variable 
+class
+Instance
+programming thing
+
+String Parsing
+Array
+String Operation
+for in loops
+casting - specify a type onto a variable
+
+casting is done using constructor functions
+    constructor - a method called when an object is created
+        it is defined in the class
+        can be used to initialize basic variables
