@@ -1,26 +1,29 @@
 # Creating Function
 
-# add function adds a and b, returns the result
-def add(a,b):
-    return(a + b)
+a = 2
+b = 10
 
-# mult function multiplies a and b, returns the result
-def mult(a,b):
-    return(a * b)
+# add function adds x and y, returns the result
+def add(x,y):
+    return(x + y)
 
-# sub function subtracts a and b, returns the result
-def sub(a,b):
-    return(a - b)
+# mult function multiplies x and y, returns the result
+def mult(x,y):
+    return(x * y)
 
-# div function divides a and b, returns the result
-def div(a,b):
-    return(a / b)
+# sub function subtracts x and y, returns the result
+def sub(x,y):
+    return(x - y)
+
+# div function divides x and y, returns the result
+def div(x,y):
+    return(x / y)
 
 # main function 
 def main():
-    print(add(2,3))
-    print(mult(4,3))
-    print(sub(3,4))
-    print(div(10,5))
+    print(add(a,b))
+    print(mult(a,b))
+    print(sub(a,b))
+    print(div(a,b))
 
 main()
