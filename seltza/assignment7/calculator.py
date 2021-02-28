@@ -77,7 +77,7 @@ class Calculator:
 
     def sub(self, n1, n2):
         """
-        adds two numbers
+        subtracts two numbers
 
         Parameters:
             n1 (int or float): the first number
@@ -92,7 +92,7 @@ class Calculator:
 
     def mul(self, n1, n2):
         """
-        adds two numbers
+        multiplies two numbers
 
         Parameters:
             n1 (int or float): the first number
@@ -107,7 +107,7 @@ class Calculator:
 
     def div(self, n1, n2):
         """
-        adds two numbers
+        divides two numbers
 
         Parameters:
             n1 (int or float): the first number
@@ -125,7 +125,7 @@ class Calculator:
 
     def pwo(self, n1, n2):
         """
-        adds two numbers
+        raises n1 to the n2th
 
         Parameters:
             n1 (int or float): the first number
@@ -140,7 +140,7 @@ class Calculator:
 
     def mod(self, n1, n2):
         """
-        adds two numbers
+        takes n1 mod n2
 
         Parameters:
             n1 (int or float): the first number
