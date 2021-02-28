@@ -6,12 +6,10 @@ class Calculator:
 
     Attributes
     ----------
-    history : float
-        first argument of the math
-    n2 : float
-        second argument of the math
-    ans : float
-        the answer of 
+    history : list
+        stores the previous calculation
+    throw : bool
+        whether to throw exceptions when dividing by zero
     """
 
     def __init__(self, n1=691, n2=692, ans=-691, op='NA', throw=False):
