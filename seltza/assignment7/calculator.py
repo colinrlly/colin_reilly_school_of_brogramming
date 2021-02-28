@@ -186,22 +186,26 @@ class Calculator:
                 '^': self.pwo,
                 '%': self.mod
             }
-            spt = stin.split() # split string on whitespace
-            if spt.__len__() == 3: # enforce three arguments (ideally two numbers and an operator)
-                f = switcher.get(spt[1], 'nothing') # lookup the function to use from the dictionary
-                if f: # if f is None, the string did not contain a valid operator
-                    try: # try is for ValueError raised by float() if string is malformed
-                        ans = f(float(spt[0]), float(spt[2]))
-                        # check if it's an integer, use that formatting if so
-                        if ans and ans.is_integer(): # protect against int(ans = None)
-                            return int(ans)
-                        return ans
-                    except ValueError:
-                        self.razer('You think you can get away with putting messed up numbers in here?')
-                else:
-                    self.razer('You think ' + spt[1] + ' is a valid operator? Are ya stupid or somethin?')
-            else:
-                self.razer('You think you can just put together an expression all willy nilly like? STICK TO THE FRICKIN FORMAT! calculate(\'n1 $ n2\') where $ is your operator')
+            found = False # whether the position of the operator was found
+            clean = ''.join(stin.split()) # remove all whitespace
+            for c in list(switcher.keys()):
+                spt = clean.partition(c)
+                if spt.__len__() == 3 and spt[2] != '': # enforce three arguments (ideally two numbers and an operator)
+                    found  = True
+                    f = switcher.get(spt[1], 'nothing') # lookup the function to use from the dictionary
+                    if f: # if f is None, the string did not contain a valid operator
+                        try: # try is for ValueError raised by float() if string is malformed
+                            ans = f(float(spt[0]), float(spt[2]))
+                            # check if it's an integer, use that formatting if so
+                            if ans and ans.is_integer(): # protect against int(ans = None)
+                                return int(ans)
+                            return ans
+                        except ValueError:
+                            self.razer('You think you can get away with putting messed up numbers in here?')
+                    else:
+                        self.razer('You think ' + spt[1] + ' is a valid operator? Are ya stupid or somethin?')
+            if not found:
+                self.razer('You think you can get away without using a valid operator? Are ya stupid or somethin?')
         else:
             self.razer('You think you can get arround just sending empty strings all over the joint?')
 
