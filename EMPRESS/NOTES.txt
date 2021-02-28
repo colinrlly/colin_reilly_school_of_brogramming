@@ -12,4 +12,4 @@ git push -u origin branchname
 python <filename>
 
 
-look over _in_ function, self
+look over _init_ function, self
