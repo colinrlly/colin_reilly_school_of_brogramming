@@ -3,21 +3,21 @@
 a = 2
 b = 10
 
-# add function adds a and b, returns the result
-def add(a,b):
-    return(a + b)
+# add function adds x and y, returns the result
+def add(x,y):
+    return(x + y)
 
-# mult function multiplies a and b, returns the result
-def mult(a,b):
-    return(a * b)
+# mult function multiplies x and y, returns the result
+def mult(x,y):
+    return(x * y)
 
-# sub function subtracts a and b, returns the result
-def sub(a,b):
-    return(a - b)
+# sub function subtracts x and y, returns the result
+def sub(x,y):
+    return(x - y)
 
-# div function divides a and b, returns the result
-def div(a,b):
-    return(a / b)
+# div function divides x and y, returns the result
+def div(x,y):
+    return(x / y)
 
 # main function 
 def main():
