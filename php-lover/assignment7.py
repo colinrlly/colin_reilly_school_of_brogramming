@@ -13,8 +13,8 @@ class Calculator:
             '^': math.pow,
             '/': self.div,
             '*': self.mul,
+            '+': self.add,
             '-': self.sub,
-            '+': self.add
         }
 
 
@@ -27,36 +27,41 @@ class Calculator:
         eq_arr = [i for i in l if i != '' and i is not None]
 
         i = 0
+        last_op = True
         while i < len(eq_arr):
             # create the equation queue
             x = eq_arr[i]
             if x == '(':
                 # process parentheses
                 start = i + 1
-                end = eq_arr.index(')', start)
+                end = len(eq_arr) - 1 - eq_arr[::-1].index(')')
 
                 nq.append(self.calculate(' '.join(eq_arr[start:end])))
                 i = end
+                last_op = False
             elif x not in self.OPS:
                 # add number to queue
                 nq.append(float(x))
+                last_op = False
             elif x in self.OPS:
                 # add operator to queue
-                oq.append(x)
+                if last_op and x == '-':
+                    nq.append(-1.0)
+                    oq.append('*')
+                else:
+                    oq.append(x)
+                last_op = True
             else:
                 raise SyntaxError
 
             i += 1
 
         # run equation queue
-        for op in self.OPS:
-            for i in range(len(oq)):
-                try:
-                    if oq[i] == op:
-                        nq[i] = self.OPS[op](nq[i], nq.pop(i+1))
-                        oq.pop(i)
-                except IndexError:
-                    continue
+        for op in self.OPS: # run each op in EMDAS order
+            while op in oq: # calc until all instances are complete
+                i = oq.index(op) # get index of op
+                nq[i] = self.OPS[op](nq[i], nq.pop(i+1)) # calc for the op
+                oq.pop(i) # remove the op
 
         # return result
         if len(nq) == 1:
@@ -88,8 +93,7 @@ if __name__ == "__main__":
         s = sys.argv[1]
     elif n == 1:
         # example equation
-        #s = '4 + 5 * 4 - ( 3 * 3 )'
-        s = '-4+5'
+        s = "-2 * 2 * (4 ^ (3 + 1) -10)"
     else:
         raise SyntaxError
 
