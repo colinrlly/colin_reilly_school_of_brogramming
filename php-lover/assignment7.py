@@ -27,6 +27,7 @@ class Calculator:
         eq_arr = [i for i in l if i != '' and i is not None]
 
         i = 0
+        last_op = True
         while i < len(eq_arr):
             # create the equation queue
             x = eq_arr[i]
@@ -37,12 +38,19 @@ class Calculator:
 
                 nq.append(self.calculate(' '.join(eq_arr[start:end])))
                 i = end
+                last_op = False
             elif x not in self.OPS:
                 # add number to queue
                 nq.append(float(x))
+                last_op = False
             elif x in self.OPS:
                 # add operator to queue
-                oq.append(x)
+                if last_op and x == '-':
+                    nq.append(-1.0)
+                    oq.append('*')
+                else:
+                    oq.append(x)
+                last_op = True
             else:
                 raise SyntaxError
 
@@ -50,13 +58,10 @@ class Calculator:
 
         # run equation queue
         for op in self.OPS:
-            for i in range(len(oq)):
-                try:
-                    if oq[i] == op:
-                        nq[i] = self.OPS[op](nq[i], nq.pop(i+1))
-                        oq.pop(i)
-                except IndexError:
-                    continue
+            while op in oq:
+                i = oq.index(op)
+                nq[i] = self.OPS[op](nq[i], nq.pop(i+1))
+                oq.pop(i)
 
         # return result
         if len(nq) == 1:
@@ -88,7 +93,7 @@ if __name__ == "__main__":
         s = sys.argv[1]
     elif n == 1:
         # example equation
-        s = "2 * (4 ^ (3 + 1) -10)"
+        s = "-2 * 2 * (4 ^ (3 + 1) -10)"
     else:
         raise SyntaxError
 
