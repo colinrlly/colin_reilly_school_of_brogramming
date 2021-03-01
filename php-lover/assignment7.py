@@ -13,8 +13,8 @@ class Calculator:
             '^': math.pow,
             '/': self.div,
             '*': self.mul,
+            '+': self.add,
             '-': self.sub,
-            '+': self.add
         }
 
 
@@ -57,11 +57,11 @@ class Calculator:
             i += 1
 
         # run equation queue
-        for op in self.OPS:
-            while op in oq:
-                i = oq.index(op)
-                nq[i] = self.OPS[op](nq[i], nq.pop(i+1))
-                oq.pop(i)
+        for op in self.OPS: # run each op in EMDAS order
+            while op in oq: # calc until all instances are complete
+                i = oq.index(op) # get index of op
+                nq[i] = self.OPS[op](nq[i], nq.pop(i+1)) # calc for the op
+                oq.pop(i) # remove the op
 
         # return result
         if len(nq) == 1:
