@@ -1,11 +1,11 @@
-##Close a branch:
+### Close a branch:
 
 `git push origin --delete branchname`
 
-##First push:
+### First push:
 
 `git push -u origin branchname`
 
-##Merge from master:
+### Merge from master:
 
 `git merge origin/master`
