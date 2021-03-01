@@ -1,4 +1,4 @@
-basic flask app 
+basic flask app
 
 setup:
 $ python -m venv venv
