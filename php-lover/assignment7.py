@@ -33,7 +33,7 @@ class Calculator:
             if x == '(':
                 # process parentheses
                 start = i + 1
-                end = eq_arr.index(')', start)
+                end = len(eq_arr) - 1 - eq_arr[::-1].index(')')
 
                 nq.append(self.calculate(' '.join(eq_arr[start:end])))
                 i = end
@@ -88,8 +88,7 @@ if __name__ == "__main__":
         s = sys.argv[1]
     elif n == 1:
         # example equation
-        #s = '4 + 5 * 4 - ( 3 * 3 )'
-        s = '-4+5'
+        s = "2 * (4 ^ (3 + 1) -10)"
     else:
         raise SyntaxError
 
