@@ -26,7 +26,7 @@ class Calculator:
         # ['4', '+', '5']
         operationlist = operation.split()
 
-        # convert or cast list items from string type to int type
+        # cast list items from string type to int type
         # now '4' and '5' are integers in operationlist
         # [4, '+', 5]
         x = int(operationlist[0])
