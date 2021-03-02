@@ -8,6 +8,7 @@ git status
 git add .
 git commit -m "notes"
 git push -u origin branchname 
+git merge
 
 python <filename>
 
