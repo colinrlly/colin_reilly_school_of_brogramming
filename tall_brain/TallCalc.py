@@ -50,19 +50,30 @@ class tallCalc:
     # Logic to Handle Calculator String Inputs.
 
     # Converting the user string input into usable floats.
-    def probStringParse(self, probSplitStr):
+    def probStringCast(self, probSplitStr):
         
-        n1 = probSplitStr[0]
-        f1 = n1.strip()
-        if f1.isnumeric():
-            f1 = float(f1)
-        
-        n2 = probSplitStr[1]
-        f2 = n2.strip()
-        if f2.isnumeric():
-            f2 = float(f2)
+        floatList = []
+        for n in probSplitStr:
+            if n.isnumeric():
+                f = float(n)
+                floatList.append((f))
+        return floatList
 
-        return f1, f2
+                
+                
+
+
+        # n1 = probSplitStr[0]
+        # f1 = n1.strip()
+        # if f1.isnumeric():
+        #     f1 = float(f1)
+        
+        # n2 = probSplitStr[1]
+        # f2 = n2.strip()
+        # if f2.isnumeric():
+        #     f2 = float(f2)
+
+        # return f1, f2
 
 
     # Main calculator function, determines what basic function to call and passes floats.
@@ -70,30 +81,33 @@ class tallCalc:
 
         # Operator Dictionary
         # Add trig once logic is entirely sorted there.
-        # opDict = {
-        #         '+': self.add,
-        #         '-': self.sub,
-        #         '*': self.mul,
-        #         '/': self.div,
-        #         '^': self.exp,
-        #         'sqrt': self.sqrt
-        #     }
+        opDict = {
+                '+': self.add,
+                '-': self.sub,
+                '*': self.mul,
+                '/': self.div,
+                '^': self.exp,
+                '√': self.sqrt
+            }
         
 
-        # Split the Problem String
-        if '+' '-' '*' '/' '^' '√' in prob:
-            probSplitStr = prob.split('+', '-', '*', '/', '^', '√')
-            (f1, f2) = self.probStringParse(probSplitStr)
-            return self.exp(f1, f2)
+        # Split the Problem String and push it to probStringParse function.
+        # Use return from probStringParse and push it to corresponding operator function.
+        operators = ['+', '-', '*', '/', '^', '√']
+
+
+        # Look into "List Comprehension" to potentially streamline.
+        for o in operators:
+            if o in prob:
+                probSplitStr = prob.split(o)
+                (f) = self.probStringCast(probSplitStr)
+                return opDict[o](f)
         
 
 
 
 tCalc = tallCalc()
 
-result = tCalc.calculate('4 ^ 3')
+result = tCalc.calculate('3+4')
 
 print(result)
-
-
-
