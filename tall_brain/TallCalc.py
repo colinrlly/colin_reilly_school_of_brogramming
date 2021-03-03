@@ -5,75 +5,67 @@ class tallCalc:
     # Core Basic Mathematical Functions
 
     # Basic Addition Function
-    def add(self, n1, n2):
-        return n1 + n2
+    def add(self, floatList):
+        solution = floatList[0] + floatList[1]
+        return solution
 
     # Basic Subtraction Function
-    def sub(self, n1 , n2):
-        return n1 - n2
+    def sub(self, floatList):
+        solution = floatList[0] - floatList[1]
+        return solution
 
     # Basic Multiplication Function
-    def mul(self, n1, n2):
-        return n1 * n2
+    def mul(self, floatList):
+        solution = floatList[0] * floatList[1]
+        return solution
 
     # Basic Division Function
-    def div(self, n1, n2):
-        return n1 / n2
+    def div(self, floatList):
+        solution = floatList[0] / floatList[1]
+        return solution
 
     # Core Complex Mathematical Functions
 
     # Exponentiation
-    def exp(self, n1, n2):
-        return n1 ** n2
+    def exp(self, floatList):
+        solution = floatList[0] ** floatList[1]
+        return solution
 
     # Square Root
-    def sqrt(self, n1):
-        return math.sqrt(n1)
+    def sqrt(self, floatList):
+        solution = math.sqrt(floatList[0])
+        return solution
     
 
     # Trigonometry
-    # Complex, need to convert degrees to radians for input then radians back to degrees for output.
 
-    # Sin (I/O in Radians Currently)
-    def sin(self, n1):
-        return math.sin(n1)
+    # Sin (Input in degrees, conversion to radians within function)
+    def sin(self, floatList):
+        solution = math.sin(math.radians(floatList[0]))
+        return solution
 
-    # Cos (I/O in Radians Currently)
-    def cos(self, n1):
-        return math.cos(n1)
+    # Cos (Input in degrees, conversion to radians within function)
+    def cos(self, floatList):
+        solution = math.cos(math.radians(floatList[0]))
+        return solution
 
-    # Tan (I/O in Radians Currently)
-    def tan(self, n1):
-        return math.tan(n1)
+    # Tan (Input in degrees, conversion to radians within function)
+    def tan(self, floatList):
+        solution = math.tan(math.radians(floatList[0]))
+        return solution
+
 
 
     # Logic to Handle Calculator String Inputs.
-
     # Converting the user string input into usable floats.
+    # Returns the floats as a list with indexed values.
     def probStringCast(self, probSplitStr):
         
-        floatList = []
+        fL = []
         for n in probSplitStr:
-            if n.isnumeric():
-                f = float(n)
-                floatList.append((f))
-        return floatList
-
-                
-                
-
-
-        # n1 = probSplitStr[0]
-        # f1 = n1.strip()
-        # if f1.isnumeric():
-        #     f1 = float(f1)
-        
-        # n2 = probSplitStr[1]
-        # f2 = n2.strip()
-        # if f2.isnumeric():
-        #     f2 = float(f2)
-
-        # return f1, f2
+            # if n.isnumeric(): # Breaks decimal places and whitespace for some reason.
+            fL.append(float(n))
+        return fL
 
 
     # Main calculator function, determines what basic function to call and passes floats.
@@ -87,27 +79,42 @@ class tallCalc:
                 '*': self.mul,
                 '/': self.div,
                 '^': self.exp,
-                '√': self.sqrt
+                '√': self.sqrt,
+                'sin': self.sin,
+                'cos': self.cos,
+                'tan': self.tan
             }
         
 
         # Split the Problem String and push it to probStringParse function.
         # Use return from probStringParse and push it to corresponding operator function.
-        operators = ['+', '-', '*', '/', '^', '√']
+        operators = [
+            '+', '-',
+            '*', '/',
+            '^', '√',
+            'sin', 'cos', 'tan'
+        ]
+
+
+        # PEMDAS Lists
+        parenOp = ['(', ')']
+        expOp = ['^']
+        muldivOp = ['*', '/']
+        addsubOp = ['+', '-']
 
 
         # Look into "List Comprehension" to potentially streamline.
         for o in operators:
             if o in prob:
                 probSplitStr = prob.split(o)
-                (f) = self.probStringCast(probSplitStr)
-                return opDict[o](f)
+                fL = self.probStringCast(probSplitStr)
+                return opDict[o](fL)
         
 
 
 
 tCalc = tallCalc()
 
-result = tCalc.calculate('3+4')
+result = tCalc.calculate('6*9')
 
 print(result)
