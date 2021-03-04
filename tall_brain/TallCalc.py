@@ -72,14 +72,14 @@ class tallCalc:
     def calculate(self, prob):
 
         # Operator Dictionary
-        # Add trig once logic is entirely sorted there.
+        # Ordered based on EMDAS.
         opDict = {
-                '+': self.add,
-                '-': self.sub,
-                '*': self.mul,
-                '/': self.div,
                 '^': self.exp,
                 '√': self.sqrt,
+                '*': self.mul,
+                '/': self.div,
+                '+': self.add,
+                '-': self.sub,
                 'sin': self.sin,
                 'cos': self.cos,
                 'tan': self.tan
