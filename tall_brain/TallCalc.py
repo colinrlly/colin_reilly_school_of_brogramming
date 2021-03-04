@@ -104,6 +104,8 @@ class tallCalc:
 
 
         # Look into "List Comprehension" to potentially streamline.
+        # Recursion!!!
+        # Recursive parentheses first, then work on EMDAS
         for o in operators:
             if o in prob:
                 probSplitStr = prob.split(o)
@@ -115,6 +117,6 @@ class tallCalc:
 
 tCalc = tallCalc()
 
-result = tCalc.calculate('6*9')
+result = tCalc.calculate('24/25')
 
 print(result)
