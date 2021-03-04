@@ -1,7 +1,7 @@
 from calculator import Calculator
 
 # Alex Carpenter
-# Colin Reilly School of Brogramming Assignment 5
+# Colin Reilly School of Brogramming Assignment 7
 # Math function demo
 
 def calc(obj, expr='4 + 5'):

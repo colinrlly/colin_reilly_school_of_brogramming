@@ -5,7 +5,7 @@
 2. Create an app in that project.
 3. Create a new view and url.
 4. Access your new url in your browser.
-5. Profit.
+5. Profit.py
 
 ## Resources
 * [Django Start Page](https://www.djangoproject.com/start/)
