@@ -23,6 +23,7 @@ def sexyStrip(dataFile):
         stripLines = line.rstrip()
         fixedLines = stripLines + "\n"
         correct.write(fixedLines)
+    correct.close()
 
 
 
