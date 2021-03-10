@@ -111,7 +111,36 @@ class tallCalc:
                 probSplitStr = prob.split(o)
                 fL = self.probStringCast(probSplitStr)
                 return opDict[o](fL)
+
+
+    # Attempting recursion as a means to implement PEMDAS.
+    def recurseiveCalc(self, prob):
+
+
+        # Operator Dictionary
+        # Ordered based on EMDAS.
+        opDict = {
+                '^': self.exp,
+                '√': self.sqrt,
+                '*': self.mul,
+                '/': self.div,
+                '+': self.add,
+                '-': self.sub,
+                'sin': self.sin,
+                'cos': self.cos,
+                'tan': self.tan
+            }
+
+        # List of operators (not sure if needed).
+        operators = [
+            '+', '-',
+            '*', '/',
+            '^', '√',
+            'sin', 'cos', 'tan'
+        ]
         
+        # Probably split on parentheses, e.g. 4+3*(2+2), 2+2 would be parsed recursively?
+
 
 
 
