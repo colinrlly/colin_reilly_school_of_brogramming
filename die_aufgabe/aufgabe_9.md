@@ -25,7 +25,6 @@
 * [JSON webpage](https://www.json.org/json-en.html)
 * [Django views documentation](https://docs.djangoproject.com/en/3.1/topics/http/views/)
 * [W3schools article on GET vs POST requests](https://www.w3schools.com/tags/ref_httpmethods.asp)
-* 
 
 ## DUE DATE
 3/10/21 7pm bthurorbsqr
