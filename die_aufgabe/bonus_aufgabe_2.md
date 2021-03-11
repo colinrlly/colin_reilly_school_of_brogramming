@@ -22,3 +22,6 @@
 
 ## DUE DATE
 Take as long as you need :pog:
+
+## Resources
+* [sorting algorithm visualization](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html)
