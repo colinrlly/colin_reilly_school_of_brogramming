@@ -13,8 +13,9 @@ def calc(obj, expr='4 + 5'):
 def index(request):
     return HttpResponse("Hello, world. You're at deez.")
 
-def calc(request):
+def calculate(request):
     to_calc = request.POST.get('to_calculate')
+    print(to_calc)
     c = Calculator(throw=False)
     ans = calc(c, to_calc)
     resp = { 'ans' : str(ans)}
