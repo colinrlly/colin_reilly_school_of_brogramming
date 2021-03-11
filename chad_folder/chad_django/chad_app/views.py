@@ -8,8 +8,4 @@ def index(request):
 
 def chad(request):  
     print(json.loads(request.body))
-    from_postman = request.POST.get('to_calculate')
-    jsonDict = {
-        'to_calculate': from_postman,
-    }
-    return JsonResponse(jsonDict)
+    return JsonResponse(request.body)
