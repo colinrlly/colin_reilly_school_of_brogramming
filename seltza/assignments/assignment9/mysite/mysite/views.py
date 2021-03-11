@@ -15,8 +15,9 @@ def index(request):
 
 def calculate(request):
     to_calc = request.POST.get('to_calculate')
-    print(to_calc)
-    c = Calculator(throw=False)
-    ans = calc(c, to_calc)
-    resp = { 'ans' : str(ans)}
-    return JsonResponse(resp)
+    if to_calc:
+        print(to_calc)
+        c = Calculator(throw=False)
+        ans = calc(c, to_calc)
+        resp = { 'ans' : str(ans)}
+        return JsonResponse(resp)
