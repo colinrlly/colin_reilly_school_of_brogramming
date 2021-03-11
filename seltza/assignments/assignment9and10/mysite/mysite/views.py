@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import json
-from .calculator import Calculator
+from .helpers.calculator import Calculator
 from django.http import JsonResponse
 
 
