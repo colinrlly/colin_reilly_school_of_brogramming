@@ -1,3 +1,6 @@
+import time
+import random
+
 def normal_sort(numList):
     print(numList)
     sortedList = sorted(numList)
@@ -18,5 +21,8 @@ def bubble_sort(numList):
 
     print(numList)
 
+random_list = [random.randint(0, 10) for x in range(0, 10)]
 
-bubble_sort([42, 20, 78, 9, 15, 34, 105])
+time_1 = time.time()
+bubble_sort(random_list)
+print(time.time() - time_1)
