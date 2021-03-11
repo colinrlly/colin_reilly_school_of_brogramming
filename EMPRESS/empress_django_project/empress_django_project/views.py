@@ -22,5 +22,4 @@ def calculate(request):
     print(data["ans"])
 
     if request.method == 'POST':
-        # return JsonResponse(data)
         return JsonResponse(data)
