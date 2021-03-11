@@ -22,6 +22,7 @@ class Calculator:
         # Using string method split to return operation as a list
         # ['4', '+', '5']
         operationlist = operation.split()
+        print(operationlist)
 
         # cast list items from string type to int type
         # now '4' and '5' are integers in operationlist
@@ -41,9 +42,3 @@ class Calculator:
 
         elif operationlist[1] == '/':
             return self.div(x,y)
-
-calc = Calculator()
-
-result = calc.calculate('4 / 5')
-
-print(result)
