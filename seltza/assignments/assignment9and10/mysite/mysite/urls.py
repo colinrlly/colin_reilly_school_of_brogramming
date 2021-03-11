@@ -1,4 +1,4 @@
-"""tall_brain_online URL Configuration
+"""mysite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
@@ -18,7 +18,6 @@ from django.urls import include, path
 from . import views
 
 urlpatterns = [
-    path('api/calculate/', views.calculate),
-    path('TallApp/', views.index),
     path('admin/', admin.site.urls),
+    path('api/calculate/', views.calculate, name='calculate' )
 ]
