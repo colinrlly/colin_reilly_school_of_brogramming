@@ -3,7 +3,8 @@
 ## Objective
 1. Implement `insertion sort` and `selection sort`
 2. Create a test runner function to run bubble sort, insertion sort, selection sort on 10, 100, 1,000, 10,000, and 100,000 random lists.
-3. Print the times of the experiment to the console.
+3. Also run the native python sort in your test as well to compare that pog algorithm.
+4. Print the times of the experiment to the console.
 
 ### Extra poggers bonus to the bonus
 4. Research radix/bucket sort, merge sort, and quick sort (this one is the fastest and most cursed).
