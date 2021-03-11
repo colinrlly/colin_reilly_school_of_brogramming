@@ -1,7 +1,4 @@
 
-A = 4
-B = 5
-
 class Calculator:
         
     def add(self, x, y): 
