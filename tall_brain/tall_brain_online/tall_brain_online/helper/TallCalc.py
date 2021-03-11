@@ -55,7 +55,6 @@ class tallCalc:
         return solution
 
 
-
     # Logic to Handle Calculator String Inputs.
     # Converting the user string input into usable floats.
     # Returns the floats as a list with indexed values.
@@ -66,7 +65,6 @@ class tallCalc:
             # if n.isnumeric(): # Breaks decimal places and whitespace for some reason.
             fL.append(float(n))
         return fL
-
 
     # Main calculator function, determines what basic function to call and passes floats.
     def calculate(self, prob):
@@ -140,9 +138,6 @@ class tallCalc:
         ]
         
         # Probably split on parentheses, e.g. 4+3*(2+2), 2+2 would be parsed recursively?
-
-
-
 
 # tCalc = tallCalc()
 
