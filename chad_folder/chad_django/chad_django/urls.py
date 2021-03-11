@@ -1,3 +1,5 @@
+from . import views
+
 """chad_django URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -17,6 +19,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path('chad_app/', include('chad_app.urls')),
+    path('chad_app/', views.index, name='index'),
+    path('chad_app/chad', views.chad, name='chad'),
     path('admin/', admin.site.urls),
 ]
