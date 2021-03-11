@@ -33,3 +33,6 @@ row.save()
 ## Resources
 * [Writing your first Django app, part 2](https://docs.djangoproject.com/en/3.1/intro/tutorial02/)
 * There are multiple ways to see the contents of your database. A couple convenient ways given by Django are to use the [Django shell](https://docs.djangoproject.com/en/3.1/intro/tutorial02/#playing-with-the-api) and the [Django admin console](https://docs.djangoproject.com/en/3.1/intro/tutorial02/#creating-an-admin-user).
+
+## Due Date
+3/17/21 7PM MST
