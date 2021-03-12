@@ -1,15 +1,12 @@
 import functools
 from app.helper.calc import Calculator
 
-from flask import (
-    Blueprint, request, make_response
-)
-from app.db import get_db
-
-bp = Blueprint('api', __name__, url_prefix='/api')
+from flask import request, make_response
+from app.helper.db import get_db
+from app.api import api_bp
 
 
-@bp.route('/calculate', methods=['POST'])
+@api_bp.route('/calculate', methods=['POST'])
 def calculate():
     calc = Calculator()
     data = request.json

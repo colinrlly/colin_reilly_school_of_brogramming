@@ -20,13 +20,13 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    # include db code
-    from . import db
+    # connect to db
+    from app.helper import db
     db.init_app(app)
 
-    # include api views
-    from . import api
-    app.register_blueprint(api.bp)
+    # register api
+    from app.api import api_bp
+    app.register_blueprint(api_bp)
 
     @app.route('/')
     def hello():
