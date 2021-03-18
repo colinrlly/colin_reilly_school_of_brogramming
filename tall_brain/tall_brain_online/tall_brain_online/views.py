@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 import json
 from .helper.TallCalc import tallCalc
+from .models import CalculateHistory
 
 # Create your views here.
 def index(request):
@@ -17,11 +18,15 @@ def calculate(request):
     problem = json.loads(request.body)
     
     returnDict['calculated'] = tCalc.calculate(problem['to_calculate'])
+    
     print(returnDict['calculated'])
+
+    row = CalculateHistory(problem=problem['to_calculate'], solution=returnDict['calculated'])
+    row.save()
 
     if request.method == 'POST':
         return JsonResponse(returnDict)
 
-    # return JsonResponse(json.loads(request.body))
+    
 
 tCalc = tallCalc()
