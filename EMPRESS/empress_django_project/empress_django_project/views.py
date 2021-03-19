@@ -1,5 +1,6 @@
 import json
 
+from empress_django_project.models import CalculateHistory
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from .helper.calculator import Calculator
@@ -20,6 +21,9 @@ def calculate(request):
     data["ans"] = result
 
     print(data["ans"])
+
+    row = CalculateHistory(input = var["to_calculate"], result = data["ans"])
+    row.save()
 
     if request.method == 'POST':
         return JsonResponse(data)
