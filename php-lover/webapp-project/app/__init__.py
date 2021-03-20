@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask
+from flask import Flask, render_template
 
 
 def create_app(test_config=None):
@@ -30,6 +30,6 @@ def create_app(test_config=None):
 
     @app.route('/')
     def hello():
-        return 'hello, wolrd'
+        return render_template('index.html.jinja')
 
     return app
