@@ -1,5 +1,6 @@
 import json
 
+from empress_django_project.models import CalculateHistory
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from .helper.calculator import Calculator
