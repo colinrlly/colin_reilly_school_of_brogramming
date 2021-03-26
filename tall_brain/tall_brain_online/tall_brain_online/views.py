@@ -1,32 +1,35 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.http import JsonResponse
-import json
-from .helper.TallCalc import tallCalc
-from .models import CalculateHistory
+from django.http.request import HttpRequest
+from django.http.response import HttpResponseRedirect
+from django.shortcuts    import render
+from django.http         import HttpResponse
+from django.http         import JsonResponse
 
-# Create your views here.
+import json
+
+from .helper.TallCalc    import tallCalc
+from .models             import CalculateHistory
+
+
 def index(request):
-    return HttpResponse("Hello, brofessor! Please proceed to fugma.")
+    
+    return render(request, 'index.html')
+
 
 def calculate(request):
 
-    print(json.loads(request.body))
+    prob = request.GET.get('calculator_input')
 
-    returnDict = {}
+    if prob:
 
-    problem = json.loads(request.body)
-    
-    returnDict['calculated'] = tCalc.calculate(problem['to_calculate'])
-    
-    print(returnDict['calculated'])
+        row = CalculateHistory(problem=prob, solution=tCalc.calculate(prob))
+        row.save()
 
-    row = CalculateHistory(problem=problem['to_calculate'], solution=returnDict['calculated'])
-    row.save()
+        return render(request, 'calculate.html', {'result': tCalc.calculate(prob)})
 
-    if request.method == 'POST':
-        return JsonResponse(returnDict)
 
-    
+    else:
+
+        return render(request, 'calculate.html', {'result': 'Enter Numbers, Asshole'})
+
 
 tCalc = tallCalc()

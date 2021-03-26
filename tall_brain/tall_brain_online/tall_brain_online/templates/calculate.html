@@ -1,0 +1,12 @@
+<p>Hello, guy who is bad at basic math!</p>
+
+<h1>Calculation Time</h1>
+
+<form action='/calculate/' method='get'>
+    {% csrf_token %}
+    <label for='calculator_input'>Number Pit</label>
+    <input type='text' name='calculator_input'/>
+    <input type='submit' value='calculate'/>
+</form>
+
+<p>Result: {{ result }}</p>
