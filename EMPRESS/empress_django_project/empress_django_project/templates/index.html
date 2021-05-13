@@ -1,0 +1,12 @@
+<p>uwu Hello World-chan!</p>
+
+<h1>Calculate something</h1>
+
+<form action='' method='get'>
+    {% csrf_token %}
+    <label for='calculator_input'></label>
+    <input type='text' name='calculator_input'/>
+    <input type='submit' value='calculate' />
+</form>
+
+<p>result: {{ result }}</p>
