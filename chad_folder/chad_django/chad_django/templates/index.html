@@ -1,0 +1,27 @@
+{% load static %}
+
+<script src="{% static 'js/calculator.js' %}"></script>
+
+<h1>Calculate something</h1>
+
+<form action='/' method='get'>
+    {% csrf_token %}
+    <label for='calculator_input'></label>
+    <input type='text' name='calculator_input'/>
+    <button type='button' onclick='add_to_input("+");'>+</button>
+    <button type='button' onclick='add_to_input("_");'>-</button>
+    <button type='button' onclick='add_to_input("/");'>/</button>
+    <button type='button' onclick='add_to_input("1");'>1</button>
+    <button type='button' onclick='add_to_input("2");'>2</button>
+    <button type='button' onclick='add_to_input("3");'>3</button>
+    <button type='button' onclick='add_to_input("4");'>4</button>
+    <button type='button' onclick='add_to_input("5");'>5</button>
+    <button type='button' onclick='add_to_input("6");'>6</button>
+    <button type='button' onclick='add_to_input("7");'>7</button>
+    <button type='button' onclick='add_to_input("8");'>8</button>
+    <button type='button' onclick='add_to_input("9");'>9</button>
+    <button type='button' onclick='add_to_input("0");'>0</button>
+    <input type='submit' value='calculate' />
+</form>
+
+<p>result: {{ input }}</p>

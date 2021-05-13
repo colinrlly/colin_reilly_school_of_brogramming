@@ -6,14 +6,11 @@ import json
 from chad_django.models import CalculateHistory
 
 def index(request):
-    return HttpResponse("Hello World! CHAD")
+    calculator_input = request.GET.get('calculator_input', None)
 
-def chad(request):  
-    body = json.loads(request.body)
+    if calculator_input:
+        row = CalculateHistory(input=calculator_input, output='9')
+        row.save()
 
-    print(body)
-
-    row = CalculateHistory(input=body['to_calculate'], output='9')
-    row.save()
-
-    return JsonResponse(body)
+        return render(request, 'index.html', {'input': calculator_input})
+    return render(request, 'index.html')
