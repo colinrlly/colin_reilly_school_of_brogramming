@@ -32,7 +32,8 @@ append to the value of the text input element
 ```
 9. Now that we have a function which can append onto the end of our input all we need to do is make our buttons call this function when they are clicked! So for each button on your page add the `onclick` attribute and in that onclick value call our new function `add_to_input` with the argument set to the thing we want to append to the input (add_to_input('+') for the plus button etc.).
 10. At this point whenever you click a button it should append to the end of your input and work just like a normal calculator. Then you just click calculate like normal and it will send the query to your backend like normal.
-11. You might also want to add a clear button to clear the input. 
+11. You might also want to add a clear button to clear the input.
+12. You might also want to disable the text field so users can't type in there and it feels more like a normal calculator. This can be done with html.
 
 ## Resources
 * [Write a minimal form](https://docs.djangoproject.com/en/3.1/intro/tutorial04/#write-a-minimal-form)
