@@ -18,7 +18,7 @@ from django.urls import include, path
 from . import views
 
 urlpatterns = [
-    path('api/calculate/', views.calculate),
-    path('TallApp/', views.index),
+    path('', views.index, name='index'),
+    path('calculate/', views.calculate, name='calculate'),
     path('admin/', admin.site.urls),
 ]
